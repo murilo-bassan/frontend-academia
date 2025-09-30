@@ -1,0 +1,16 @@
+mat-toolbar {
+    background-color: #1E3A8A; // azul escuro
+    color: #fff;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 16px;
+        font-weight: 500;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #93C5FD; // azul mais claro no hover
+        }
+    }
+}
