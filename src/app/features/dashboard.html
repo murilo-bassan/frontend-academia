@@ -1,0 +1,47 @@
+<h2>Dashboard</h2>
+
+<div class="cards-container">
+  <mat-card class="card">
+    <h3>Total de Alunos</h3>
+    <p>{{ totalAlunos }}</p>
+  </mat-card>
+  <mat-card class="card">
+    <h3>Alunos Ativos</h3>
+    <p>{{ alunosAtivos }}</p>
+  </mat-card>
+  <mat-card class="card">
+    <h3>Pagamentos do Mês</h3>
+    <p>{{ pagamentosMes }}</p>
+  </mat-card>
+</div>
+
+<div class="charts-container">
+  <mat-card>
+    <h3>Status dos Alunos</h3>
+    <canvas id="pieChart"></canvas>
+  </mat-card>
+</div>
+
+<mat-card class="table-card">
+  <h3>Últimos Pagamentos</h3>
+  <table mat-table [dataSource]="ultimosPagamentos">
+
+    <ng-container matColumnDef="aluno">
+      <th mat-header-cell *matHeaderCellDef> Aluno </th>
+      <td mat-cell *matCellDef="let p"> {{ p.aluno.nome }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valor">
+      <th mat-header-cell *matHeaderCellDef> Valor </th>
+      <td mat-cell *matCellDef="let p"> R$ {{ p.valor }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef> Data </th>
+      <td mat-cell *matCellDef="let p"> {{ p.data | date:'dd/MM/yyyy' }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['aluno','valor','data']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['aluno','valor','data']"></tr>
+  </table>
+</mat-card>

@@ -1,0 +1,112 @@
+h2 {
+    color: #1E3A8A;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    th {
+        background-color: #1E3A8A;
+        color: #fff;
+        font-weight: 600;
+        padding: 12px;
+        text-align: left;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #E5E7EB;
+        color: #374151;
+    }
+
+    td.text-col {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+        cursor: default;
+    }
+
+    td:not(.acoes-col) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+        cursor: default;
+    }
+
+    tr:hover td {
+        background-color: #F3F4F6;
+    }
+
+    a {
+        color: #1E3A8A;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #3B82F6;
+        }
+    }
+}
+
+.pesquisa-container {
+    display: flex;
+    justify-content: center;
+    /* fica no canto esquerdo */
+    margin-bottom: 16px;
+
+    mat-form-field {
+        width: 300px;
+        /* largura fixa, mas não muito grande */
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+        .mat-form-field-outline {
+            color: #1E3A8A;
+        }
+
+        input {
+            color: #374151;
+            font-size: 14px;
+        }
+    }
+}
+
+.filtros-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+
+    button {
+        border: 1px solid #1E3A8A;
+        color: #1E3A8A;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #e5e7eb;
+        }
+
+        &.active {
+            background-color: #1E3A8A;
+            color: #fff;
+            border-color: #1E3A8A;
+        }
+    }
+}
+
+.acoes-col {
+    white-space: nowrap;
+    text-overflow: initial;
+    max-width: none;
+}

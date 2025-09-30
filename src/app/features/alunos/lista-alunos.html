@@ -1,0 +1,115 @@
+<h2>Lista de Alunos</h2>
+
+<div class="pesquisa-container">
+    <mat-form-field appearance="outline" style="width: 100%; max-width: 400px;">
+        <mat-label>Pesquisar aluno</mat-label>
+        <input matInput type="text" placeholder="Digite nome, email, telefone ou CPF" [(ngModel)]="filtro"
+            (input)="aplicarFiltro()" />
+        <button *ngIf="filtro" matSuffix mat-icon-button aria-label="Clear" (click)="filtro=''; aplicarFiltro()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+
+<div class="filtros-container">
+    <button mat-stroked-button [ngClass]="{ 'active': statusFiltro==='todos' }" (click)="aplicarFiltroStatus('todos')">
+        Todos
+    </button>
+
+    <button mat-stroked-button [ngClass]="{ 'active': statusFiltro==='emDia' }" (click)="aplicarFiltroStatus('emDia')">
+        Em Dia
+    </button>
+
+    <button mat-stroked-button [ngClass]="{ 'active': statusFiltro==='pendentes' }"
+        (click)="aplicarFiltroStatus('pendentes')">
+        Pendentes
+    </button>
+</div>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%">
+
+    <!-- ID -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.id"> {{ aluno.id }} </td>
+    </ng-container>
+
+    <!-- Nome -->
+    <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.nome"> {{ aluno.nome }} </td>
+    </ng-container>
+
+    <!-- Email -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.email"> {{ aluno.email }} </td>
+    </ng-container>
+
+    <!-- Telefone -->
+    <ng-container matColumnDef="telefone">
+        <th mat-header-cell *matHeaderCellDef> Telefone </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.telefone"> {{ aluno.telefone }} </td>
+    </ng-container>
+
+    <!-- DN -->
+    <ng-container matColumnDef="dataNascimento">
+        <th mat-header-cell *matHeaderCellDef> Data de Nascimento </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.dataNascimento"> {{ aluno.dataNascimento }} </td>
+    </ng-container>
+
+    <!-- CPF -->
+    <ng-container matColumnDef="cpf">
+        <th mat-header-cell *matHeaderCellDef> CPF </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.cpf"> {{ aluno.cpf }} </td>
+    </ng-container>
+
+    <!-- CEP -->
+    <ng-container matColumnDef="cep">
+        <th mat-header-cell *matHeaderCellDef> CEP </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.cep"> {{ aluno.cep }} </td>
+    </ng-container>
+
+    <!-- BAIRRO -->
+    <ng-container matColumnDef="bairro">
+        <th mat-header-cell *matHeaderCellDef> Bairro </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.bairro"> {{ aluno.bairro }} </td>
+    </ng-container>
+
+    <!-- LOGRADOURO -->
+    <ng-container matColumnDef="logradouro">
+        <th mat-header-cell *matHeaderCellDef> Logradouro </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.logradouro"> {{ aluno.logradouro }} </td>
+    </ng-container>
+
+    <!-- NUMERO -->
+    <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef> Numero </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.numero"> {{ aluno.numero }} </td>
+    </ng-container>
+
+    <!-- Ações -->
+    <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef class="acoes-col"></th>
+        <td mat-cell *matCellDef="let aluno" class="acoes-col">
+            <a mat-button color="primary" [routerLink]="['/alunos', aluno.id, 'pagamentos']">
+                Ver Pagamentos
+            </a>
+            <a mat-button color="primary" (click)="irParaEdicao(aluno.id)">
+                <mat-icon>edit</mat-icon>
+                Editar
+            </a>
+            <a mat-button color="primary" (click)="deletar(aluno.id)">
+                <mat-icon>delete</mat-icon>
+                Deletar
+            </a>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons>
+</mat-paginator>

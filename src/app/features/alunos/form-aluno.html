@@ -1,0 +1,45 @@
+<h2 *ngIf="!modoEdicao">Cadastrar Aluno</h2>
+<h2 *ngIf="modoEdicao">Editar Aluno</h2>
+
+<form [formGroup]="form" (ngSubmit)="salvar()" style="display:flex; flex-direction:column; gap:10px; max-width:400px;">
+
+    <label>Nome:</label>
+    <input type="text" formControlName="nome">
+    <div *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched" style="color:red">
+        Nome é obrigatório
+    </div>
+
+    <label>Email:</label>
+    <input type="email" formControlName="email">
+    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" style="color:red">
+        Email inválido
+    </div>
+
+    <label>Telefone:</label>
+    <input type="text" formControlName="telefone">
+
+    <label>CPF:</label>
+    <input type="text" formControlName="cpf">
+    <div *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.touched" style="color:red">
+        CPF deve ter 11 dígitos
+    </div>
+
+    <label>CEP:</label>
+    <input type="text" formControlName="cep">
+
+    <label>Bairro:</label>
+    <input type="text" formControlName="bairro">
+
+    <label>Logradouro:</label>
+    <input type="text" formControlName="logradouro">
+
+    <label>Número:</label>
+    <input type="text" formControlName="numero">
+
+    <label>Data de Nascimento:</label>
+    <input type="date" formControlName="dataNascimento">
+
+    <button type="submit" [disabled]="form.invalid">
+    {{ modoEdicao ? 'Salvar Alterações' : 'Cadastrar' }}
+  </button>
+</form>

@@ -1,0 +1,20 @@
+<h2 *ngIf="!modoEdicao">Novo Pagamento</h2>
+<h2 *ngIf="modoEdicao">Editar Pagamento</h2>
+
+<form (ngSubmit)="salvar()">
+    <label for="valor">Valor:</label>
+    <input id="valor" type="number" [(ngModel)]="pagamento.valor" name="valor" required />
+
+    <label for="data">Data:</label>
+    <input id="data" type="date" [(ngModel)]="pagamento.data" name="data" required />
+
+    <label for="vencimento">Vencimento:</label>
+    <input id="vencimento" type="date" [(ngModel)]="pagamento.vencimento" name="vencimento" required />
+
+    <label for="hora">Hora:</label>
+    <input id="hora" type="time" [(ngModel)]="pagamento.hora" name="hora" required />
+
+    <button type="submit" mat-raised-button color="primary">
+        {{ modoEdicao ? 'Salvar Alterações' : 'Cadastrar Pagamento' }}
+    </button>
+</form>

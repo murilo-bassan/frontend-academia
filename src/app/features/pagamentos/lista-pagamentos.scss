@@ -1,0 +1,106 @@
+h2 {
+    color: #1E3A8A;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    /* respeita % das colunas */
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    th,
+    td {
+        width: auto;
+        /* deixa o table-layout: fixed distribuir */
+        padding: 12px;
+        border-bottom: 1px solid #E5E7EB;
+        color: #374151;
+        overflow: hidden;
+        /* garante que fundo cubra a célula toda */
+        text-overflow: ellipsis;
+    }
+
+    th {
+        background-color: #1E3A8A;
+        color: #fff;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    tr {
+        width: 100%;
+        display: table;
+        /* mantém comportamento de tabela */
+        table-layout: fixed;
+        /* força ocupar toda a linha */
+    }
+
+    tr:hover td {
+        background-color: #F3F4F6;
+    }
+}
+
+/* --- Definições de largura (somando 100%) --- */
+.mat-column-id {
+    width: 10%;
+}
+
+.mat-column-data {
+    width: 20%;
+}
+
+.mat-column-hora {
+    width: 20%;
+}
+
+.mat-column-valor {
+    width: 20%;
+}
+
+.mat-column-acoes {
+    width: 10%;
+}
+
+
+/* Coluna de Ações alinhada */
+.mat-column-acoes {
+    width: 10%;
+    text-align: right;
+    /* agora o cabeçalho "Ações" fica alinhado com os botões */
+}
+
+/* Células da coluna de ações */
+td.mat-column-acoes {
+    display: flex;
+    justify-content: flex-end;
+    /* botões à direita */
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botão Novo Pagamento centralizado */
+.novo-container {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* garante centralização */
+    gap: 8px;
+
+    a {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    span {
+        color: #1E3A8A;
+        font-weight: 600;
+    }
+}
