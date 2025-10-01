@@ -4,14 +4,19 @@ import { ListaAlunos } from './features/alunos/lista-alunos';
 import { FormAluno } from './features/alunos/form-aluno';
 import { ListaPagamentos } from './features/pagamentos/lista-pagamentos';
 import { FormPagamento } from './features/pagamentos/form-pagamento';
+import { LoginComponent } from './features/login/login';
+import { AuthGuard } from './core/auth-guard';
 
 export const routes: Routes = [
-    { path: '', component: Dashboard },
-    { path: 'alunos', component: ListaAlunos },
-    { path: 'alunos/novo', component: FormAluno },
-    { path: 'alunos/:id/editar', component: FormAluno },
-    { path: 'alunos/:id/pagamentos', component: ListaPagamentos },
-    { path: 'alunos/:id/pagamentos/novo', component: FormPagamento },
-    { path: 'pagamentos/:id/editar', component: FormPagamento },
+    { path: 'login', component: LoginComponent },
+
+    { path: '', component: Dashboard, canActivate: [AuthGuard] },
+    { path: 'alunos', component: ListaAlunos, canActivate: [AuthGuard] },
+    { path: 'alunos/novo', component: FormAluno, canActivate: [AuthGuard] },
+    { path: 'alunos/:id/editar', component: FormAluno, canActivate: [AuthGuard] },
+    { path: 'alunos/:id/pagamentos', component: ListaPagamentos, canActivate: [AuthGuard] },
+    { path: 'alunos/:id/pagamentos/novo', component: FormPagamento, canActivate: [AuthGuard] },
+    { path: 'pagamentos/:id/editar', component: FormPagamento, canActivate: [AuthGuard] },
+
     { path: '**', redirectTo: '' }
 ];

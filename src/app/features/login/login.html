@@ -1,0 +1,23 @@
+<div class="login-container">
+    <h2>Login do Administrador</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-form-field appearance="outline" class="full">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" formControlName="senha" required />
+        </mat-form-field>
+
+        <div class="btn-container">
+            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || loading">
+                Entrar
+            </button>
+        </div>
+
+        <p *ngIf="error" class="error">{{ error }}</p>
+    </form>
+</div>
