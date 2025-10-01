@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,4 +12,12 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.scss']
 })
-export class Navbar { }
+export class Navbar { 
+  constructor(private router: Router) { }
+
+  logout() {
+    localStorage.removeItem('jwt');
+    this.router.navigate(['/login']);
+  }
+
+}
