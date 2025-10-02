@@ -4,6 +4,12 @@ Sistema de gestão para academia, com controle de alunos, pagamentos e painel ad
 
 ---
 
+## 📌 Repositórios:
+- [Frontend (Angular)](https://github.com/murilo-bassan/frontend-academia)
+- [Backend (Spring Boot)](https://github.com/murilo-bassan/backend-academia)
+
+---
+
 ## 🚀 Tecnologias
 - **Backend:** Spring Boot (Java, Security, JWT, JPA, PostgreSQL)
 - **Frontend:** Angular (Standalone Components, Angular Material)
