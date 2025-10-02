@@ -12,7 +12,7 @@ Sistema de gestão para academia, com controle de alunos, pagamentos e painel ad
 
 ## 🚀 Tecnologias
 - **Backend:** Spring Boot (Java, Security, JWT, JPA, PostgreSQL)
-- **Frontend:** Angular (Standalone Components, Angular Material)
+- **Frontend:** Angular (Angular Material)
 - **Banco de Dados:** PostgreSQL (Supabase)
 - **Autenticação:** Login do administrador com JWT
 - **Deploy:** (em breve configurado com variáveis de ambiente)
