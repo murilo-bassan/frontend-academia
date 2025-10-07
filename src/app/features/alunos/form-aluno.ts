@@ -25,7 +25,7 @@ export class FormAluno implements OnInit {
   ) {
     this.form = this.fb.group({
       nome: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: [''],
       telefone: [''],
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       cep: [''],
