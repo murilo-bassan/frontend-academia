@@ -11,9 +11,6 @@
 
     <label>Email:</label>
     <input type="email" formControlName="email">
-    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" style="color:red">
-        Email inválido
-    </div>
 
     <label>Telefone:</label>
     <input type="text" formControlName="telefone">
