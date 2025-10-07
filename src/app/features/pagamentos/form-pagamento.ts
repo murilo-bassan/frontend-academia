@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 import { PagamentosService } from '../../core/services/pagamentos.service';
 import { Pagamento } from '../../models/pagamento';
@@ -9,7 +13,7 @@ import { Pagamento } from '../../models/pagamento';
 @Component({
   selector: 'app-form-pagamento',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule],
   templateUrl: './form-pagamento.html',
   styleUrls: ['./form-pagamento.scss']
 })
