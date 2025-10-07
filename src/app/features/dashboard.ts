@@ -32,8 +32,16 @@ export class Dashboard implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carregarAlunos();
-    this.carregarPagamentos();
+    this.alunosService.getAll().subscribe({
+      next: (alunos: Aluno[]) => {
+        this.totalAlunos = alunos.length;
+        this.alunosAtivos = alunos.length;
+
+        // só chama pagamentos depois que já temos alunos
+        this.carregarPagamentos();
+      },
+      error: (err) => console.error('Erro ao carregar alunos:', err)
+    });
   }
 
   private carregarAlunos(): void {
