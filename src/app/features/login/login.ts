@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
   loading = false;
   error = '';
-  API = 'http://localhost:8080'; // backend local
+  API = `${environment.apiUrl}`; 
 
   form: ReturnType<FormBuilder['group']>;
 
