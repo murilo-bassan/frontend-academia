@@ -14,6 +14,16 @@
     <label for="hora">Hora:</label>
     <input id="hora" type="time" [(ngModel)]="pagamento.hora" name="hora" required />
 
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Forma de Pagamento</mat-label>
+        <mat-select [(ngModel)]="pagamento.formaPagamento" name="formaPagamento" required>
+            <mat-option value="Dinheiro">Dinheiro</mat-option>
+            <mat-option value="Pix">Pix</mat-option>
+            <mat-option value="Cartão de Crédito">Cartão de Crédito</mat-option>
+            <mat-option value="Cartão de Débito">Cartão de Débito</mat-option>
+        </mat-select>
+    </mat-form-field>
+
     <button type="submit" mat-raised-button color="primary">
         {{ modoEdicao ? 'Salvar Alterações' : 'Cadastrar Pagamento' }}
     </button>

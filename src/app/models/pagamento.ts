@@ -6,6 +6,7 @@ export interface Pagamento {
     data: string;
     hora: string;
     vencimento?: string; // também pode ser opcional
+    formaPagamento?: string;
     aluno?: {
         id: number;
         nome: string;

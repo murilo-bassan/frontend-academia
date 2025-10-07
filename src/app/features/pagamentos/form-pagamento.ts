@@ -23,6 +23,7 @@ export class FormPagamento {
     data: '',
     hora: '',
     vencimento: '',
+    formaPagamento: '',
     aluno: { 
       id: 0, 
       nome: '', 
@@ -65,6 +66,7 @@ export class FormPagamento {
         data: '', 
         hora: '', 
         vencimento: '', 
+        formaPagamento: '',
         aluno: { 
           id: this.idAluno, 
           nome: '', 

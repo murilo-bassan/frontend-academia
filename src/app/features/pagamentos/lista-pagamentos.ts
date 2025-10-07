@@ -18,7 +18,7 @@ import { Pagamento } from '../../models/pagamento';
 })
 export class ListaPagamentos implements OnInit {
   pagamentos: Pagamento[] = [];
-  displayedColumns: string[] = ['id', 'data', 'vencimento', 'hora', 'valor', 'acoes'];
+  displayedColumns: string[] = ['id', 'data', 'vencimento', 'hora', 'valor', 'formaPagamento', 'acoes'];
 
   idAluno!: number;
 
