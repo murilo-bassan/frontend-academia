@@ -58,12 +58,12 @@ export class ListaAlunos implements OnInit {
   }
 
   aplicarFiltro() {
-    const filtroLower = this.filtro.toLowerCase();
+    const filtroLower = this.filtro?.toLowerCase() || '';  
     this.dataSource.data = this.alunos.filter(aluno =>
-      aluno.nome.toLowerCase().includes(filtroLower) ||
-      aluno.email.toLowerCase().includes(filtroLower) ||
-      aluno.telefone.toLowerCase().includes(filtroLower) ||
-      aluno.cpf.toLowerCase().includes(filtroLower)
+      (aluno.nome?.toLowerCase() || '').includes(filtroLower) ||
+      (aluno.email?.toLowerCase() || '').includes(filtroLower) ||
+      (aluno.telefone?.toLowerCase() || '').includes(filtroLower) ||
+      (aluno.cpf?.toLowerCase() || '').includes(filtroLower)
     );
   }
 
