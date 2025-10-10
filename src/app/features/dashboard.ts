@@ -22,6 +22,7 @@ export class Dashboard implements OnInit {
   totalAlunos = 0;
   alunosAtivos = 0;
   pagamentosMes = 0;
+  totalMes = 0;
 
   // Lista usada na tabela
   ultimosPagamentos: Pagamento[] = [];
@@ -63,26 +64,33 @@ export class Dashboard implements OnInit {
         const mesAtual = hoje.getMonth();
         const anoAtual = hoje.getFullYear();
 
-        // pagamentos do mês corrente
-        this.pagamentosMes = dados.filter(p => {
+        // Filtra apenas os pagamentos do mês atual
+        const pagamentosDoMes = dados.filter(p => {
           const dataPag = new Date(p.data);
           return dataPag.getMonth() === mesAtual && dataPag.getFullYear() === anoAtual;
-        }).length;
+        });
 
-        // calcular pagos e pendentes
+        // Conta quantos pagamentos ocorreram no mês
+        this.pagamentosMes = pagamentosDoMes.length;
+
+        // 💰 Soma o valor total dos pagamentos do mês
+        this.totalMes = pagamentosDoMes.reduce((acc, p) => acc + (p.valor || 0), 0);
+
+        // Calcula pagos e pendentes
         const pagos = dados.filter(p => {
           if (!p.vencimento) return false;
           const vencimento = new Date(p.vencimento);
-          return vencimento >= hoje; // ainda válido
+          return vencimento >= hoje;
         }).length;
 
-        const pendentes = this.totalAlunos - pagos; // assumindo que cada aluno precisa estar em dia
+        const pendentes = this.totalAlunos - pagos;
 
         this.createPieChart(pagos, pendentes);
       },
       error: (err) => console.error('Erro ao carregar pagamentos:', err)
     });
   }
+
 
   private createPieChart(pagos: number, pendentes: number): void {
     new Chart("pieChart", {
