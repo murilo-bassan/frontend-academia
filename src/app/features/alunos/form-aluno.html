@@ -36,6 +36,9 @@
     <label>Data de Nascimento:</label>
     <input type="date" formControlName="dataNascimento">
 
+    <label>Observação:</label>
+    <textarea formControlName="observacao" rows="4"></textarea>
+
     <button type="submit" [disabled]="form.invalid">
     {{ modoEdicao ? 'Salvar Alterações' : 'Cadastrar' }}
   </button>

@@ -11,5 +11,6 @@ export interface Aluno {
     logradouro: string;
     numero: string;
     dataNascimento: string;
+    observacao?: string;
     pagamentos?: Pagamento[];
 }

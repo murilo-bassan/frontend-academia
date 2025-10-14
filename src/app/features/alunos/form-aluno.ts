@@ -32,7 +32,8 @@ export class FormAluno implements OnInit {
       bairro: [''],
       logradouro: [''],
       numero: [''],
-      dataNascimento: ['']
+      dataNascimento: [''],
+      observacao: ['']
     });
   }
 
