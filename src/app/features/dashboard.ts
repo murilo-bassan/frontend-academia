@@ -56,9 +56,9 @@ export class Dashboard implements OnInit {
   }
 
   private carregarPagamentos(): void {
-    this.pagamentosService.getUltimos().subscribe({
+    this.pagamentosService.getAll().subscribe({
       next: (dados: Pagamento[]) => {
-        this.ultimosPagamentos = dados;
+        this.ultimosPagamentos = dados.slice(0, 5);;
 
         const hoje = new Date();
         const mesAtual = hoje.getMonth();

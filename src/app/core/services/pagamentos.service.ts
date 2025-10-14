@@ -44,4 +44,9 @@ export class PagamentosService {
     return this.http.get<Pagamento>(`${this.apiUrl}/aluno/${idAluno}/ultimo`);
   }
 
+  getAll(): Observable<Pagamento[]> {
+    return this.http.get<Pagamento[]>(`${this.apiUrl}/listar`);
+  }
+
+
 }
