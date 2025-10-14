@@ -30,7 +30,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 export class ListaAlunos implements OnInit {
   alunos: Aluno[] = [];
   displayedColumns: string[] = ['id', 'nome', 'email', 'telefone', 'dataNascimento', 'cpf', 
-    'cep', 'bairro', 'logradouro', 'numero', 'acoes'];
+    'cep', 'bairro', 'logradouro', 'numero', 'observacao', 'acoes'];
 
   filtro: string = '';
   dataSource = new MatTableDataSource<Aluno>();

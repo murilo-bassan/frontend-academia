@@ -89,6 +89,12 @@
         <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.numero"> {{ aluno.numero }} </td>
     </ng-container>
 
+    <!-- OBSERVAÇÃO -->
+    <ng-container matColumnDef="observacao">
+        <th mat-header-cell *matHeaderCellDef> Observação </th>
+        <td mat-cell *matCellDef="let aluno" class="text-col" [matTooltip]="aluno.observacao"> {{ aluno.observacao }} </td>
+    </ng-container>
+
     <!-- Ações -->
     <ng-container matColumnDef="acoes">
         <th mat-header-cell *matHeaderCellDef class="acoes-col"></th>
